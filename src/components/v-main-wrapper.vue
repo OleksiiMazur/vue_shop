@@ -29,7 +29,7 @@
         methods: {},
         watch: {},
         mounted() {
-            // console.log('consoleSOLEsole');
+            console.log('consoleSOLEsole');
         }
     }
 </script>
