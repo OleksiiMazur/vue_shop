@@ -4,8 +4,8 @@
             {{ title }}
         </h1>
 
-        <v-catalog />
         <v-cart />
+        <v-catalog />
     </div>
 </template>
 
