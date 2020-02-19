@@ -75,7 +75,7 @@
             text-transform: uppercase;
             text-align: center;
             line-height: 40px;
-            position: fixed;
+            position: absolute;
             top: 5%;
             right: 5%;
             height: 40px;

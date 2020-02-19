@@ -15,13 +15,19 @@
             </p>
         </div>
         <div class="v-cart-item__quantity">
-            <span>quantity</span>
+            <span>Qty:</span>
+            <button
+                class="v-cart-item__quantity-btn"
+                @click="decrementItem"> - </button>
             {{ cart_item_data.quantity }}
+            <button
+                class="v-cart-item__quantity-btn"
+                @click="incremenItem"> + </button>
         </div>
         <button
                 @click="deleteFromCart"
                 class="v-cart-item__close-btn"
-        >X</button>
+        >x</button>
     </div>
 </template>
 
@@ -42,6 +48,12 @@
         methods: {
             deleteFromCart() {
                 this.$emit('deleteFromCart');
+            },
+            decrementItem() {
+                this.$emit('decrement');
+            },
+            incremenItem() {
+                this.$emit('increment');
             }
         },
     }
@@ -49,14 +61,16 @@
 
 <style lang="scss">
     .v-cart-item {
+        z-index: 1;
         width: 100%;
         display: flex;
+        background-color: #fff;
         justify-content: space-between;
         align-items: center;
         flex-wrap: nowrap;
         max-height: 150px;
         padding: 14px;
-        margin: 14px;
+        margin: 14px 0;
         box-shadow: 0 3px 12px -5px #070707;
         border-radius: 4px;
 
@@ -65,9 +79,9 @@
         }
         &__close-btn {
             font-weight: bold;
-            cursor: pointer;
             display: block;
             height: 36px;
+            font-size: 20px;
             width: 36px;
             background-color: #d13a00;
             color: #fff;
@@ -75,6 +89,24 @@
             outline: none;
             border: none;
             border-radius: 3px;
+        }
+        &__quantity {
+            span {
+                display: block;
+                margin-bottom: 20px;
+            }
+            &-btn {
+                display: inline-block;
+                height: 30px;
+                width: 30px;
+                font-size: 22px;
+                font-weight: bold;
+                background-color: darkgreen;
+                color: #fff;
+                border-radius: 4px;
+                border: none;
+                outline: none;
+            }
         }
     }
 </style>
