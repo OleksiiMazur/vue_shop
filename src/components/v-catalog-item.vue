@@ -38,14 +38,18 @@
 
 <style lang="scss">
     .v-catalog-item {
-        flex-basis: 20%;
+        background-color: #fff;
         border-radius: 4px;
         box-shadow: 0 3px 10px -3px #271258;
         padding: 15px;
-        margin-bottom: 2%;
-        margin-right: 2%;
+        &:hover {
+            .v-catalog-item__img {
+                transform: scale(1.07);
+            }
+        }
         &__img {
             max-width: 100%;
+            transition: transform 0.3s ease;
         }
         &__btn {
             cursor: pointer;

@@ -50,8 +50,10 @@
 
 <style lang="scss">
     .v-catalog {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 4% 2.5%;
+        padding: 30px 0 50px;
     }
 </style>
