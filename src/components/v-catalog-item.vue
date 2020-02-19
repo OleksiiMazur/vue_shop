@@ -11,8 +11,8 @@
         </p>
         <button
             class="v-catalog-item__btn"
-            @click="sendDataToParent">
-                add to cart
+            @click="addToCart">
+                Add to cart
         </button>
     </div>
 </template>
@@ -29,10 +29,10 @@
             }
         },
         methods: {
-            sendDataToParent() {
-                this.$emit('sendDataToParent', this.product_data.article);
+            addToCart() {
+                this.$emit('addToCart', this.product_data)
             }
-        }
+        },
     }
 </script>
 
