@@ -1,6 +1,16 @@
 <template>
     <div class="v-cart">
-        <h1>Cart</h1>
+        <router-link :to="{name: 'catalog'}">
+            <div class="v-catalog__to-cart">
+                Back to catalog
+            </div>
+        </router-link>
+        <h1 v-if="!cart_data.length"> {{ emptyCartTitle }} </h1>
+        <h1 v-else> {{ title }} </h1>
+        <p
+            class="v-cart__empty">
+
+        </p>
         <v-cart-item
             v-for="(item, index) in cart_data"
             :key="item.article"
@@ -28,7 +38,10 @@
             }
         },
         data() {
-            return{}
+            return {
+                title: 'Cart. Let`s buy svth!)🥋',
+                emptyCartTitle: '🙄 At first add smth to cart',
+            }
         },
         computed: {},
         methods: {

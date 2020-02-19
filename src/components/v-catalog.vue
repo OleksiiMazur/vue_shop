@@ -1,11 +1,22 @@
 <template>
     <div class="v-catalog">
-        <v-catalog-item
-            v-for="product in PRODUCTS"
-            :key="product.article"
-            :product_data="product"
-            @addToCart="addToCart"
-        />
+        <router-link :to="{name: 'cart', params: {cart_data: CART}}">
+            <div class="v-catalog__to-cart">
+                Сart: {{ CART.length }}
+            </div>
+        </router-link>
+
+        <h1>
+            {{ title }}
+        </h1>
+        <ul class="v-catalog__item-list">
+            <v-catalog-item
+                    v-for="product in PRODUCTS"
+                    :key="product.article"
+                    :product_data="product"
+                    @addToCart="addToCart"
+            />
+        </ul>
     </div>
 </template>
 
@@ -19,14 +30,15 @@
             vCatalogItem
         },
         props: {},
-        data() {
-            return {
-
+        data(){
+            return{
+                title: 'Catalog. Chose the best only 👀'
             }
         },
         computed: {
             ...mapGetters([
-                'PRODUCTS'
+                'PRODUCTS',
+                'CART'
             ]),
         },
         methods: {
@@ -51,10 +63,27 @@
 
 <style lang="scss">
     .v-catalog {
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 4% 2.5%;
-        padding: 30px 0 50px;
+        &__item-list {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 4% 2.5%;
+            padding: 30px 0 50px;
+        }
+        &__to-cart {
+            font-size: 18px;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 40px;
+            position: fixed;
+            top: 5%;
+            right: 5%;
+            height: 40px;
+            width: auto;
+            border-radius: 4px;
+            border: 1px solid #aeaeae;
+            padding: 0 30px;
+            cursor: pointer;
+        }
     }
 </style>
