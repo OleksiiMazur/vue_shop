@@ -72,10 +72,10 @@
         }
         &__to-cart {
             font-size: 18px;
-            text-transform: uppercase;
             text-align: center;
             line-height: 40px;
             position: absolute;
+            color: #2c3e50;
             top: 5%;
             right: 5%;
             height: 40px;

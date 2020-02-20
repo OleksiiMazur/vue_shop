@@ -15,11 +15,13 @@
             </p>
         </div>
         <div class="v-cart-item__quantity">
-            <span>Qty:</span>
+            <span class="v-cart-item__quantity-title">Qty:</span>
             <button
                 class="v-cart-item__quantity-btn"
                 @click="decrementItem"> - </button>
-            {{ cart_item_data.quantity }}
+            <span class="v-cart-item__quantity-num">
+                {{ cart_item_data.quantity }}
+            </span>
             <button
                 class="v-cart-item__quantity-btn"
                 @click="incremenItem"> + </button>
@@ -91,9 +93,13 @@
             border-radius: 3px;
         }
         &__quantity {
-            span {
+            &-title {
                 display: block;
                 margin-bottom: 20px;
+            }
+            &-num {
+                display: inline-block;
+                min-width: 50px;
             }
             &-btn {
                 display: inline-block;
